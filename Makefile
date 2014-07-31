@@ -29,7 +29,7 @@ makeROC: makeROC.o
 	$(CXX) -o makeROC.exe makeROC.o $(LIBS)
 
 clean:
-	@rm *.o *.exe *~ 
+	@rm *.o *.exe  
 
 
 ##############RULES##############
