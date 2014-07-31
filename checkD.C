@@ -960,15 +960,28 @@
    Long64_t nentries = passedEvents->GetEntries();
 
    Long64_t nbytes = 0;
+
    for (Long64_t i=0; i<nentries;i++) {
       nbytes += passedEvents->GetEntry(i);
       ULong64_t run0=Run;
       ULong64_t event0=Event;
+      Double_t mass4l0 = mass4l;
+      Int_t idL10 = idL1;
+      Int_t idL20 = idL2;
+      Int_t idL30 = idL3;
+      Int_t idL40 = idL4;
+
       for (Long64_t j=i+1; j<nentries;j++) {
         passedEvents->GetEntry(j);
         if (run0==Run &&event0==Event) {
-          std::cout << "Duplicated Run: " << run0 << " Event: " << event0 << std::endl;
+           if (idL10!=idL1||idL20!=idL2||idL30!=idL3||idL40!=idL4) {
+              std::cout << "Duplicated Run: " << run0 << " Event: " << event0 << std::endl;
+              std::cout << "  1.  mass4l and IDs = " << mass4l0 << ", " << idL10 << ", " << idL20 << ", " << idL30 << ", " << idL40 << std::endl;
+              std::cout << "  2.  mass4l and IDs = " << mass4l << ", " << idL1 << ", " << idL2 << ", " << idL3 << ", " << idL4 << std::endl;
+           }
         }
       }
    }
+
+
 }
