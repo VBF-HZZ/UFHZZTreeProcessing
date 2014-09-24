@@ -30,15 +30,18 @@ using namespace std;
 //Scale factors for data/MC efficiency                                                                                                                     
 TFile *fMuWeight = new TFile(pathToScaleFactors+"/MuonScaleFactors_2011_2012.root","READ");
 TFile *fMuWeight12 = new TFile(pathToScaleFactors+"/SF2013_V5_old2011.root","READ");
-TFile *fElWeight = new TFile(pathToScaleFactors+"/scale_factors_ele2011.root","READ");
+//TFile *fElWeight = new TFile(pathToScaleFactors+"/scale_factors_ele2011.root","READ");
+TFile *fElWeight = new TFile(pathToScaleFactors+"/CombinedMethod_ScaleFactors_RecoIdIsoSip_2011.root","READ");
 TFile *fElWeight12 = new TFile(pathToScaleFactors+"/scale_factors_ele2012.root","READ");
 
 TH2D *hTH2D_Mu_All_2011A = (TH2D*)fMuWeight->Get("TH2D_ALL_2011A");
 TH2D *hTH2D_Mu_All_2011B = (TH2D*)fMuWeight->Get("TH2D_ALL_2011B");
 TH2D *hTH2D_Mu_All_2012  = (TH2D*)fMuWeight12->Get("TH2D_ALL_2012");
 
-TH2D *hTH2D_El_All_2011A = (TH2D*)fElWeight->Get("h_electron_scale_factor_RECO_ID_ISO_SIP");
-TH2D *hTH2D_El_All_2011B = (TH2D*)fElWeight->Get("h_electron_scale_factor_RECO_ID_ISO_SIP");
+//TH2D *hTH2D_El_All_2011A = (TH2D*)fElWeight->Get("h_electron_scale_factor_RECO_ID_ISO_SIP");
+//TH2D *hTH2D_El_All_2011B = (TH2D*)fElWeight->Get("h_electron_scale_factor_RECO_ID_ISO_SIP");
+TH2D *hTH2D_El_All_2011A = (TH2D*)fElWeight->Get("h_electronScaleFactor_RecoIdIsoSip");
+TH2D *hTH2D_El_All_2011B = (TH2D*)fElWeight->Get("h_electronScaleFactor_RecoIdIsoSip");
 //TH2D *hTH2D_El_All_2012  = (TH2D*)fElWeight12->Get("h_electron_scale_factor_RECO_ID_ISO_SIP");
 
 //TH2D *hTH2D_El_All_2011A = (TH2D*)fElWeight->Get("heff_electron_selection");
